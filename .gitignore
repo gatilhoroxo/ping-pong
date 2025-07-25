@@ -1,0 +1,6 @@
+# Ignore the output directory
+output/
+# Ignore the vscode settings
+.vscode/
+app
+
