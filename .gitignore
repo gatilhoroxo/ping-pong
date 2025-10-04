@@ -3,4 +3,5 @@ output/
 # Ignore the vscode settings
 .vscode/
 app
+*.exe
 

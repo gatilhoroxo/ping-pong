@@ -51,6 +51,8 @@ g++ file.cpp -o app -std=c++17 -lglfw -lGLEW -lGL
 📁 projeto/
 ├── src       
 ├		 └── main.cpp # Código principal
+├		 └── include
+├		        └── ... 
 ├── makefile      # Script de compilação
 └── doc/          # Documentação e anotações
 ```
@@ -59,11 +61,11 @@ g++ file.cpp -o app -std=c++17 -lglfw -lGLEW -lGL
 
 ### Etapa 1: ### Janelas
 
-- [ ]  Gerar uma janela (glfw que faz, ver melhor)
+- [x]  Gerar uma janela (glfw que faz, ver melhor)
 
 ### Etapa 2: Aprender como usar OpenGL
 
-- [ ]  Mudar a cor da janela
+- [x]  Mudar a cor da janela
 
 ### Etapa 3: Buffers
 

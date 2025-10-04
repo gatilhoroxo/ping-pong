@@ -1,19 +1,15 @@
 #ifndef TRIANGULO_HPP
 #define TRIANGULO_HPP
 
-//faz o carregamento das funções do opengl
 #include <GL/glew.h>
-//lida com a janela, entrada do teclado/mouse e contexto do openGL
 #include <GLFW/glfw3.h>
 
 
 class triangulo {
 private:
     float vertices[6];
-    //vertex array object, guarda o estado das configurações de atributos de vértices
-    unsigned int VAO = 0;
-    //vertex buffers object, armazena vértices na memória da GPU
-    unsigned int VBO = 0;
+    unsigned int VAO = 0; //vertex array object, guarda o estado das configurações de atributos de vértices
+    unsigned int VBO = 0; //vertex buffers object, armazena vértices na memória da GPU
     unsigned int shaderProgram = 0; 
     unsigned int vertexShader = 0; //objeto shader
     unsigned int frangmentShader = 0; //objeto shader

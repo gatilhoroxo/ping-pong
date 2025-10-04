@@ -1,6 +1,4 @@
-//faz o carregamento das funções do opengl
 #include <GL/glew.h>
-//lida com a janela, entrada do teclado/mouse e contexto do openGL
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -10,9 +8,7 @@
 int main() {
     identificandoErros();
     if(initGLFW() == -1) { return -1; }
-
     hintswindow();
-
     //gerando janela que vai "pop up" na tela
     GLFWwindow* window = glfwCreateWindow(800, 600, "Janela OpenGL", nullptr, nullptr);
     if(testJanela(window) == -1) { return -1; };
@@ -46,13 +42,13 @@ int main() {
         glClearColor(0.3, 0.1, 0.7, 0.8);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //*
+        /*
         par.usetriangulo(timeValue);
         par.drawTriangulo(0, 3);
-        //*/
+        //*///*
         tri.usetriangulo(timeValue);
         tri.drawTriangulo(0, 3);
-
+        //*/
         //quadros
         glfwSwapBuffers(window);
 
