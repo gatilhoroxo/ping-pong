@@ -29,25 +29,12 @@ void triangulo::configVerxtexs(){
 }
 
 //auxiliares para shader program -------
-const char* triangulo::geraShader(){
-    return R"(
-#version 330 core
-//uniform float u_time;
-layout(location = 0) in vec2 vitor;
-void main() {
-    //float offset = cos(u_time*10)*0.5;
-    //vec2 pos = vec2(offset, offset);
-    gl_Position = vec4(vitor, 0, 1.0);
-}
-)";
-
-}
 void triangulo::setVertexShader(){
-    const char* shader = geraShader();
+    const char* vertexShaderCode = vis.geraVertexShader();
     //cria o objeto
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     //insere código GLSL
-    glShaderSource(vertexShader, 1, &shader, NULL);
+    glShaderSource(vertexShader, 1, &vertexShaderCode, NULL);
     //compila na GPU
     glCompileShader(vertexShader);
 
@@ -60,27 +47,12 @@ void triangulo::setVertexShader(){
         std::cerr << "Erro no Vertex Shader:\n" << infoLog << std::endl;
     }
 }
-//codigo para mudar a cor do objeto que vai ser mostrado
-const char* triangulo::geraShadCor(){
-    return R"(
-#version 330 core
-uniform float u_time;
-out vec4 fragColor;
-void main() {
-    float offset = cos(u_time*10)*0.8;
-    float offsin = sin(u_time)*0.2;
-    vec3 pos = vec3(offset, offsin, offset);
-    vec3 cor = vec3(1.0f, 0.3f, 0.5f);
-    fragColor = vec4(cor + pos, 1.0f);
-}
-)";
-}
 void triangulo::setFragShader(){
-    const char* shader_cor = geraShadCor();
+    const char* fragmengShaderCode = vis.geraFragmentShader();
     //cria o objeto
     frangmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     //insere código GLSL
-    glShaderSource(frangmentShader, 1, &shader_cor, NULL);
+    glShaderSource(frangmentShader, 1, &fragmengShaderCode, NULL);
     //compila na GPU
     glCompileShader(frangmentShader);
     
@@ -128,25 +100,43 @@ void triangulo::setTimeLoc(){
     timeLoc = glGetUniformLocation(shaderProgram, "u_time");
 }
 
-triangulo::triangulo(float* v){
-    geraVertices(v);
-    geraShader();
-    setVAO();
-    setVBO();
-    configVerxtexs();
-    setShaderProgram();
-    setTimeLoc();
-}
 triangulo::triangulo(){
     float v[] = {-0.5f, -0.5f, 0.5f, -0.5f, 0.0f, 0.5f };
     geraVertices(v);
-    geraShader();
     setVAO();
     setVBO();
     configVerxtexs();
     setShaderProgram();
     setTimeLoc();
 }
+triangulo::triangulo(float* v){
+    geraVertices(v);
+    setVAO();
+    setVBO();
+    configVerxtexs();
+    setShaderProgram();
+    setTimeLoc();
+}
+triangulo::triangulo(visual ct){
+    float v[] = {-0.5f, -0.5f, 0.5f, -0.5f, 0.0f, 0.5f };
+    geraVertices(v);
+    vis = ct;
+    setVAO();
+    setVBO();
+    configVerxtexs();
+    setShaderProgram();
+    setTimeLoc();
+}
+triangulo::triangulo(float* v, visual ct){
+    geraVertices(v);
+    vis = ct;
+    setVAO();
+    setVBO();
+    configVerxtexs();
+    setShaderProgram();
+    setTimeLoc();
+}
+
 triangulo::~triangulo(){
     if(VAO) glDeleteVertexArrays(1, &VAO);
     if(VBO) glDeleteBuffers(1, &VBO);

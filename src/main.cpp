@@ -31,8 +31,10 @@ int main() {
         0.4f, -0.8f,
         0.0f,  0.4f
     };
-    triangulo par;
-    triangulo tri(v);
+    visual cor(cor::blue);
+    triangulo par(cor);
+    visual c(cor::rainbow);
+    triangulo tri(v,c);
 
     //location do uniform pega uma vez apenas
 
@@ -42,7 +44,7 @@ int main() {
         glClearColor(0.3, 0.1, 0.7, 0.8);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        /*
+        //*
         par.usetriangulo(timeValue);
         par.drawTriangulo(0, 3);
         //*///*
