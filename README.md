@@ -29,6 +29,7 @@ sudo apt upgrade
 sudo apt install libglfw3-dev
 sudo apt install libgl1-mesa-dev libglu1-mesa-devfreeflut3-dev
 sudo apt install libglew-dev
+sudo apt install libglm-dev
 
 # teve um erro de segmentation fault (core dumped) 
 # por um tempo e por eu estar usando o wsl preciso fazer isso
