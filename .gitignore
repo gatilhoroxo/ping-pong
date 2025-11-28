@@ -2,6 +2,9 @@
 output/
 # Ignore the vscode settings
 .vscode/
+# executaveis
 app
 *.exe
+# objetos (nem sei se vai ter)
+*.o
 
