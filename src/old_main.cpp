@@ -2,8 +2,9 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-#include "include/old_geometry/forms.hpp"
+#include "include/geometry/geometria.hpp"
 #include "include/init.hpp"
+#include "include/visual.hpp"
 
 int main() {
     identificandoErros();
@@ -31,10 +32,11 @@ int main() {
         0.4f, -0.8f,
         0.0f,  0.4f
     };
+    
     visual cor(cor::blue);
-    triangulo par(cor);
+    Triangulo par(cor);
     visual c(cor::rainbow);
-    triangulo tri(v,c);
+    Triangulo tri(v,c);
 
     //location do uniform pega uma vez apenas
 
@@ -45,11 +47,11 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         //*
-        par.usetriangulo(timeValue);
-        par.drawTriangulo(0, 3);
+        par.usar(timeValue);
+        par.desenhar();
         //*///*
-        tri.usetriangulo(timeValue);
-        tri.drawTriangulo(0, 3);
+        tri.usar(timeValue);
+        tri.desenhar();
         //*/
         //quadros
         glfwSwapBuffers(window);

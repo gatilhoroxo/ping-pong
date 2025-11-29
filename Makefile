@@ -4,10 +4,27 @@ exe=app
 cpp_v=c++17
 
 opengl_flags=-lglfw -lGLEW -lGL
+include_paths=-I/usr/include -Isrc/include
+
+# Arquivos da arquitetura de formas geométricas
+geometry_src=src/include/geometry/Forma.cpp \
+             src/include/geometry/Triangulo.cpp \
+             src/include/geometry/Quadrado.cpp \
+             src/include/geometry/Retangulo.cpp \
+             src/include/geometry/Circulo.cpp
+
+# Arquivos de suporte
+support_src=src/include/visual.cpp \
+            src/include/init.cpp
 
 #compilar e executar
 run:
-	g++ $(src) src/include/*.cpp src/include/old_geometry/*.cpp -o $(exe) -std=$(cpp_v) $(include_paths) $(opengl_flags)
+	g++ $(src) $(geometry_src) $(support_src) -o $(exe) -std=$(cpp_v) $(include_paths) $(opengl_flags)
+	./$(exe)
+
+# Compilar e executar versão antiga (também usa a nova arquitetura)
+old_run:
+	g++ src/old_main.cpp $(geometry_src) $(support_src) -o $(exe) -std=$(cpp_v) $(include_paths) $(opengl_flags)
 	./$(exe)
 
 # only necessary in the beggining of the learning path
@@ -23,3 +40,4 @@ setup:
 # export LIBGL_ALWAYS_SOFTWARE=1
 
 clean:
+	rm $(exe)
