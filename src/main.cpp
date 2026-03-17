@@ -16,14 +16,14 @@
 #include <iostream>
 
 // Sistema de formas geométricas modular
-#include "include/geometry/Triangulo.hpp"
-#include "include/geometry/Quadrado.hpp"
-#include "include/geometry/Retangulo.hpp"
-#include "include/geometry/Circulo.hpp"
+#include "geometry/Triangulo.hpp"
+#include "geometry/Quadrado.hpp"
+#include "geometry/Retangulo.hpp"
+#include "geometry/Circulo.hpp"
 
 // Utilitários de inicialização e visualização
-#include "include/init.hpp"
-#include "include/visual.hpp"
+#include "init.hpp"
+#include "visual.hpp"
 
 /**
  * @brief Ponto de entrada da aplicação

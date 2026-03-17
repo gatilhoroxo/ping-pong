@@ -27,7 +27,7 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install libglfw3-dev
-sudo apt install libgl1-mesa-dev libglu1-mesa-devfreeflut3-dev
+sudo apt install libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
 sudo apt install libglew-dev
 sudo apt install libglm-dev
 
