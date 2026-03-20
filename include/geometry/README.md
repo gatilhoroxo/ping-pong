@@ -239,50 +239,7 @@ tri.desenhar();      // Renderiza na tela
 ---
 
 ## 🔧 Exemplo Completo
-
-```cpp
-#include "geometry/Triangulo.hpp"
-#include "geometry/Quadrado.hpp"
-#include "geometry/Circulo.hpp"
-
-int main() {
-    // Inicializa OpenGL...
-    
-    // Cria formas
-    visual corAzul(cor::blue);
-    Triangulo tri(corAzul);
-    
-    Quadrado quad(0.5f);
-    quad.setPosicao(0.5f, 0.5f);
-    
-    visual corAnimada(cor::rainbow);
-    Circulo circ(0.3f, 48, corAnimada);
-    circ.setPosicao(-0.5f, -0.5f);
-    
-    // Loop de renderização
-    while (!glfwWindowShouldClose(window)) {
-        float tempo = glfwGetTime();
-        
-        glClear(GL_COLOR_BUFFER_BIT);
-        
-        // Desenha todas as formas
-        tri.usar(tempo);
-        tri.desenhar();
-        
-        quad.usar(tempo);
-        quad.desenhar();
-        
-        circ.usar(tempo);
-        circ.desenhar();
-        
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-    
-    // Cleanup automático
-    return 0;
-}
-```
+- [geometry-ex](../../exemples/geometry-ex.cpp) 
 
 ---
 
