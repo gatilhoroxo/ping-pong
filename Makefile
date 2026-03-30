@@ -2,8 +2,7 @@ src=src/main.cpp
 exe=app
 
 cpp_v=c++17
-
-opengl_flags=-lglfw -lGLEW -lGL
+opengl_flags=-lglfw -lGLEW -lGL 
 include_paths=-I/usr/include -Iinclude
 
 # Arquivos da arquitetura de formas geométricas
@@ -19,7 +18,8 @@ support_src=include/visual.cpp \
 
 #compilar e executar
 run:
-	g++ $(src) $(geometry_src) $(support_src) -o $(exe) -std=$(cpp_v) $(include_paths) $(opengl_flags)
+	g++ $(src) $(geometry_src) $(support_src) -o $(exe) \
+		-std=$(cpp_v) $(include_paths) $(opengl_flags)
 	./$(exe)
 
 # only necessary in the beggining of the learning path
