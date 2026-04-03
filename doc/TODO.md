@@ -1,5 +1,9 @@
 # Requisitos da lib
 
+### Seguir tutoriais 
+- [ ] Seguir o tutorial do learn openGL - Hello Triangle
+- [ ] Ver o quarto vídeo da playlist de OpenGL do TheCHerno
+
 ### Adicionar Mais Formas
 - [ ] Pentágono (5 lados)
 - [ ] Hexágono (6 lados)
